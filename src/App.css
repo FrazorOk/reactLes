@@ -1,0 +1,91 @@
+.app-wrapper {
+  width: 100%;
+  margin: 0 auto;
+  font-size: 20px;
+}
+.header {
+  background-color: rgb(230, 230, 230);
+  padding: 10px;
+}
+.header img {
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+}
+.app-row {
+  display: flex;
+}
+.navigation {
+  flex: 0 0 15%;
+  margin: 20px 0px 0px 0px;
+}
+.navigation li {
+  margin-bottom: 10px;
+  position: relative;
+  left: 0;
+  top: 0;
+  padding-left: 22px;
+  list-style: none;
+  cursor: pointer;
+  width: 150px;
+  height: 50px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  transition: all ease 0.3s;
+}
+.navigation span {
+  display: block;
+  box-sizing: border-box;
+  background-color: rgb(180, 180, 180);
+  width: 150px;
+  height: 30px;
+  position: relative;
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  transition: all ease 1.3s;
+  box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.267);
+}
+.navigation li:hover {
+  padding-left: 40px;
+}
+.navigation span::after {
+  box-sizing: border-box;
+  content: '';
+  width: 18px;
+  height: 30px;
+  position: absolute;
+  top: 9px;
+  left: -21.5px;
+  transform: skew(0deg, -40deg);
+  background-color: rgb(180, 180, 180);
+  box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.267);
+}
+.navigation span::before {
+  box-sizing: content-box;
+  content: '';
+  width: 100%;
+  height: 14px;
+  position: absolute;
+  top: 33px;
+  left: -9px;
+  transform: skew(-50deg);
+  background-color: rgb(180, 180, 180);
+  box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.267);
+}
+.main {
+  flex: 0 1 80%;
+  padding: 20px;
+  margin: 0 auto;
+}
+.main__img {
+  height: 25vh;
+  background-image: url('./interesting-cat-facts.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.main__posts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
