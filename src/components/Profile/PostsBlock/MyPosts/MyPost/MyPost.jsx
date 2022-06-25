@@ -8,7 +8,7 @@ let MyPost = (props) => {
         alt=""
       />
       <p>{props.message}</p>
-      <p>like</p>
+      <p>like - {props.likes}</p>
     </div>
   );
 };
