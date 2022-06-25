@@ -1,6 +1,8 @@
+import s from './Navigation.module.css';
+
 let Naivgation = () => {
   return (
-    <nav className="navigation">
+    <nav className={s.navigation}>
       <ul>
         <li>
           <span>Profile</span>

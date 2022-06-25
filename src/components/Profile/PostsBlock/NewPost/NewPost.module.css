@@ -1,0 +1,11 @@
+.new_post {
+  display: flex;
+}
+.new_post textarea {
+  width: 50vw;
+  height: 50px;
+}
+.new_post button {
+  align-self: flex-end;
+  height: 30px;
+}
