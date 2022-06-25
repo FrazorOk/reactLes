@@ -5,4 +5,10 @@
 }
 .app-row {
   display: flex;
+  justify-content: space-around;
+}
+.main {
+  flex: 0 1 80%;
+  padding: 20px;
+  margin: 0 auto;
 }

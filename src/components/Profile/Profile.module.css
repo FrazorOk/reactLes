@@ -1,9 +1,4 @@
-.main {
-  flex: 0 1 80%;
-  padding: 20px;
-  margin: 0 auto;
-}
-.main__img {
+.img {
   height: 25vh;
   background-image: url('/src/interesting-cat-facts.jpg');
   background-size: cover;
