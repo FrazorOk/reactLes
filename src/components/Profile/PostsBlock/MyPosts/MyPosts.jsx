@@ -4,8 +4,8 @@ import s from './MyPosts.module.css';
 let MyPosts = () => {
   return (
     <div className={s.posts}>
-      <MyPost />
-      <MyPost />
+      <MyPost message="Hi, first post" />
+      <MyPost message="Natasha post" />
     </div>
   );
 };
