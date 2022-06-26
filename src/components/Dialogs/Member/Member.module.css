@@ -1,0 +1,11 @@
+.member {
+  word-wrap: break-word;
+  margin: 20px 0;
+  font-weight: 500;
+}
+a {
+  color: black;
+}
+a.active {
+  text-decoration: underline;
+}

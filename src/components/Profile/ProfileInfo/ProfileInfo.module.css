@@ -1,0 +1,6 @@
+.img {
+  height: 25vh;
+  background-image: url('/src/interesting-cat-facts.jpg');
+  background-size: cover;
+  background-position: center;
+}

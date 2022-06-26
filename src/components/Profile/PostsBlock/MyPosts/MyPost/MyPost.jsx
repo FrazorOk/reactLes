@@ -1,6 +1,6 @@
 import s from './MyPost.module.css';
 
-let MyPost = (props) => {
+const MyPost = (props) => {
   return (
     <div className={s.post}>
       <img

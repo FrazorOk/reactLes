@@ -1,6 +1,6 @@
 import s from './Music.module.css';
 
-let Music = () => {
+const Music = () => {
   return (
     <div className={s.list}>
       <div>Music ha ha ha</div>

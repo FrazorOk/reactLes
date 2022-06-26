@@ -1,9 +1,11 @@
 .new_post {
   display: flex;
+  margin: 20px 0;
 }
 .new_post textarea {
   width: 50vw;
   height: 50px;
+  border: 1px solid black;
 }
 .new_post button {
   align-self: flex-end;

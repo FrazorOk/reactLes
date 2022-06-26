@@ -3,7 +3,7 @@ import MyPosts from './MyPosts/MyPosts';
 import TitlePosts from './TitlePosts/TitlePosts';
 import s from './PostsBlock.module.css';
 
-let PostsBlock = () => {
+const PostsBlock = () => {
   return (
     <div className={s.main}>
       <TitlePosts />

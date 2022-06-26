@@ -1,11 +1,11 @@
 import PostsBlock from './PostsBlock/PostsBlock';
 import s from './Profile.module.css';
+import ProfileInfo from './ProfileInfo/ProfileInfo';
 
-let Profile = () => {
+const Profile = () => {
   return (
     <div>
-      <div className={s.img}></div>
-      <div>ava+description</div>
+      <ProfileInfo />
       <PostsBlock />
     </div>
   );

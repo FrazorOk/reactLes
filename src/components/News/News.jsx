@@ -1,6 +1,6 @@
 import s from './News.module.css';
 
-let News = () => {
+const News = () => {
   return (
     <div className={s.list}>
       <div>News</div>

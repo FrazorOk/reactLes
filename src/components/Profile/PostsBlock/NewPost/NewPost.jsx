@@ -1,6 +1,6 @@
 import s from './NewPost.module.css';
 
-let NewPost = () => {
+const NewPost = () => {
   return (
     <div className={s.new_post}>
       <textarea />

@@ -1,6 +1,6 @@
 import s from './TitlePosts.module.css';
 
-let TitlePosts = () => {
+const TitlePosts = () => {
   return <p className={s.title}>Posts:</p>;
 };
 

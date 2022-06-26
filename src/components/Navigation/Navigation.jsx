@@ -3,7 +3,7 @@ import s from './Navigation.module.css';
 
 const activeNav = ({ isActive }) => (isActive ? s.active : '');
 
-let Naivgation = () => {
+const Naivgation = () => {
   return (
     <nav className={s.navigation}>
       <ul>
