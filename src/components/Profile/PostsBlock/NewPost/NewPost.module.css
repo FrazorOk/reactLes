@@ -3,11 +3,12 @@
   margin: 20px 0;
 }
 .new_post textarea {
-  width: 50vw;
+  width: 30vw;
   height: 50px;
   border: 1px solid black;
+  font-size: 22px;
 }
 .new_post button {
   align-self: flex-end;
-  height: 30px;
+  padding: 10px;
 }

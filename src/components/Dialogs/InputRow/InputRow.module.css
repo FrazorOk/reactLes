@@ -1,0 +1,24 @@
+.input_row {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+.input_row textarea {
+  width: 80%;
+  height: 30px;
+  font-size: 22px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.148);
+}
+.input_row button {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  align-items: center;
+  font-size: 18px;
+  line-height: 30px;
+  text-transform: uppercase;
+  border-radius: 12px;
+  padding: 0px 28px;
+  margin-left: 25px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.148);
+}

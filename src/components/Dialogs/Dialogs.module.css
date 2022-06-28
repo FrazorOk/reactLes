@@ -9,7 +9,10 @@
   border-right: 10px solid white;
 }
 
-.messages {
+.messages_block {
   width: 80%;
-  padding: 0 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
