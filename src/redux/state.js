@@ -22,16 +22,23 @@ let state = {
       { id: '3', message: 'Dima post', likes: '13' },
       { id: '4', message: 'Dima post', likes: '13' },
     ],
+    postNewText: '',
   },
 };
 
-export let addPost = (postMessage) => {
+export let addPost = () => {
   let newPost = {
     id: '5',
-    message: postMessage,
+    message: state.profile.postNewText,
     likes: '5',
   };
   state.profile.dataPosts.push(newPost);
+  state.profile.postNewText = '';
+  rerenderEntireTree(state);
+};
+
+export let addPostNewTextArea = (text) => {
+  state.profile.postNewText = `${text}`;
   rerenderEntireTree(state);
 };
 

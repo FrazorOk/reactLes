@@ -18,7 +18,13 @@ let App = (props) => {
             <Routes>
               <Route
                 path="/profile/*"
-                element={<Profile dataPosts={props.state.profile.dataPosts} addPost={props.addPost} />}
+                element={
+                  <Profile
+                    profile={props.state.profile}
+                    addPost={props.addPost}
+                    addPostNewTextArea={props.addPostNewTextArea}
+                  />
+                }
               />
               <Route
                 path="/dialogs/*"

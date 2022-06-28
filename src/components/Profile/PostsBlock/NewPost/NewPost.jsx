@@ -5,13 +5,17 @@ const NewPost = (props) => {
   let valueTextArea = useRef();
 
   let eventClickBtn = () => {
+    props.addPost();
+  };
+
+  let eventChageArea = () => {
     let text = valueTextArea.current.value;
-    props.addPost(text);
+    props.addPostNewTextArea(text);
   };
 
   return (
     <div className={s.new_post}>
-      <textarea ref={valueTextArea}></textarea>
+      <textarea onChange={eventChageArea} ref={valueTextArea} value={props.postNewText} />
       <button onClick={eventClickBtn}>
         <span>accept</span>
       </button>
