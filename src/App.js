@@ -16,16 +16,7 @@ let App = (props) => {
           <Naivgation />
           <div className="main">
             <Routes>
-              <Route
-                path="/profile/*"
-                element={
-                  <Profile
-                    profile={props.state.profile}
-                    addPost={props.addPost}
-                    addPostNewTextArea={props.addPostNewTextArea}
-                  />
-                }
-              />
+              <Route path="/profile/*" element={<Profile profile={props.state.profile} dispatch={props.dispatch} />} />
               <Route
                 path="/dialogs/*"
                 element={

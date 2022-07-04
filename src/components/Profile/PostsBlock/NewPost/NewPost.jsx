@@ -5,12 +5,12 @@ const NewPost = (props) => {
   let valueTextArea = useRef();
 
   let eventClickBtn = () => {
-    props.addPost();
+    props.dispatch({ type: 'ADD-NEW-POST' });
   };
 
   let eventChageArea = () => {
     let text = valueTextArea.current.value;
-    props.addPostNewTextArea(text);
+    props.dispatch({ type: 'UPGRADE-TEXTAREA', textArea: `${text}` });
   };
 
   return (

@@ -7,11 +7,7 @@ const PostsBlock = (props) => {
   return (
     <div className={s.main}>
       <TitlePosts />
-      <NewPost
-        addPost={props.addPost}
-        addPostNewTextArea={props.addPostNewTextArea}
-        postNewText={props.profile.postNewText}
-      />
+      <NewPost dispatch={props.dispatch} postNewText={props.profile.postNewText} />
       <MyPosts profile={props.profile} />
     </div>
   );
