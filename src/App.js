@@ -16,14 +16,16 @@ let App = (props) => {
           <Naivgation />
           <div className="main">
             <Routes>
-              <Route path="/profile/*" element={<Profile profile={props.state.profile} dispatch={props.dispatch} />} />
+              <Route
+                path="/profile/*"
+                element={
+                  <Profile profile={props.state.profile} dispatch={props.dispatch} />
+                }
+              />
               <Route
                 path="/dialogs/*"
                 element={
-                  <Dialogs
-                    dataMembers={props.state.dialogs.dataMembers}
-                    dataMessage={props.state.dialogs.dataMessage}
-                  />
+                  <Dialogs dialogs={props.state.dialogs} dispatch={props.dispatch} />
                 }
               />
               <Route path="/news/*" element={<News />} />

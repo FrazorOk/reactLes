@@ -1,3 +1,6 @@
+import dialogsReducer from './dialogs-reducer';
+import profileReducer from './profile-reducer';
+
 let store = {
   _state: {
     dialogs: {
@@ -13,6 +16,7 @@ let store = {
         { id: '2', message: 'How are you?' },
         { id: '3', message: 'Wow, Bro!' },
       ],
+      inputText: '',
     },
     profile: {
       dataPosts: [
@@ -30,24 +34,14 @@ let store = {
   getState() {
     return this._state;
   },
-  rerender(observer) {
+  subscribe(observer) {
     this._rerenderEntireTree = observer;
   },
 
   dispatch(action) {
-    if (action.type === 'ADD-NEW-POST') {
-      let newPost = {
-        id: '5',
-        message: this._state.profile.postNewText,
-        likes: '5',
-      };
-      this._state.profile.dataPosts.push(newPost);
-      this._state.profile.postNewText = '';
-      this._rerenderEntireTree(this);
-    } else if (action.type === 'UPGRADE-TEXTAREA') {
-      this._state.profile.postNewText = `${action.textArea}`;
-      this._rerenderEntireTree(this);
-    }
+    profileReducer(this._state.profile, action);
+    dialogsReducer(this._state.dialogs, action);
+    this._rerenderEntireTree(this);
   },
 };
 

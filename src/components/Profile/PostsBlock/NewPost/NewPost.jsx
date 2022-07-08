@@ -1,16 +1,20 @@
 import React, { useRef } from 'react';
+import {
+  addPostActionCreator,
+  upgardeTextAreaActionCreator,
+} from '../../../../redux/profile-reducer';
 import s from './NewPost.module.css';
 
 const NewPost = (props) => {
   let valueTextArea = useRef();
 
   let eventClickBtn = () => {
-    props.dispatch({ type: 'ADD-NEW-POST' });
+    props.dispatch(addPostActionCreator());
   };
 
   let eventChageArea = () => {
     let text = valueTextArea.current.value;
-    props.dispatch({ type: 'UPGRADE-TEXTAREA', textArea: `${text}` });
+    props.dispatch(upgardeTextAreaActionCreator(text));
   };
 
   return (
