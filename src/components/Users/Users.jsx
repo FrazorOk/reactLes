@@ -8,7 +8,6 @@ let Users = (props) => {
     pages.push(i);
   }
 
-  console.log('work');
   return (
     <div className={s.users_container}>
       <div className={s.pagination}>
@@ -42,7 +41,7 @@ let Users = (props) => {
                 ) : (
                   <button
                     onClick={() => {
-                      this.props.follow(u.id);
+                      props.follow(u.id);
                     }}
                   >
                     Follow

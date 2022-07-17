@@ -1,39 +1,47 @@
 import { connect } from 'react-redux';
-import { activePageAC, followAC, setTotalCountAC, setUserAC, unfollowAC } from '../../redux/users-reducer';
+import { follow, setActivePage, setIsFetching, setTotalCount, setUser, unfollow } from '../../redux/users-reducer';
 import Users from './Users';
 import axios from 'axios';
 import React from 'react';
+import Preloader from '../common/Preloader/Preloader';
 
 class UsersComponent extends React.Component {
   componentDidMount() {
+    this.props.setIsFetching(true);
+
     axios
       .get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.maxUsers}&page=${this.props.activePage}`)
       .then((response) => {
         this.props.setUser(response.data.items);
         response.data.totalCount >= 100 ? this.props.setTotalCount(100) : this.props.setTotalCount(response.data.totalCount);
+        this.props.setIsFetching(false);
       });
   }
 
   activeNomber = (p) => {
+    this.props.setIsFetching(true);
     this.props.setActivePage(p);
+
     axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.maxUsers}&page=${p}`).then((response) => {
       this.props.setUser(response.data.items);
-      console.log(this.props.maxUsers);
-      console.log(this.props.activePage);
+      this.props.setIsFetching(false);
     });
   };
 
   render() {
     return (
-      <Users
-        totalCount={this.props.totalCount}
-        maxUsers={this.props.maxUsers}
-        activePage={this.props.activePage}
-        activeNomber={this.activeNomber}
-        unfollow={this.props.unfollow}
-        users={this.props.users}
-        follow={this.props.follow}
-      />
+      <>
+        {this.props.isFetching ? <Preloader /> : null}
+        <Users
+          totalCount={this.props.totalCount}
+          maxUsers={this.props.maxUsers}
+          activePage={this.props.activePage}
+          activeNomber={this.activeNomber}
+          unfollow={this.props.unfollow}
+          users={this.props.users}
+          follow={this.props.follow}
+        />
+      </>
     );
   }
 }
@@ -44,26 +52,16 @@ const mapStateToProps = (state) => {
     activePage: state.users.activePage,
     totalCount: state.users.totalCount,
     maxUsers: state.users.maxUsers,
+    isFetching: state.users.isFetching,
   };
 };
-const mapDispatchToProps = (dispatch) => {
-  return {
-    follow: (userId) => {
-      dispatch(followAC(userId));
-    },
-    unfollow: (userId) => {
-      dispatch(unfollowAC(userId));
-    },
-    setUser: (users) => {
-      dispatch(setUserAC(users));
-    },
-    setActivePage: (page) => {
-      dispatch(activePageAC(page));
-    },
-    setTotalCount: (totalCount) => {
-      dispatch(setTotalCountAC(totalCount));
-    },
-  };
+const mapDispatchToProps = {
+  follow,
+  unfollow,
+  setUser,
+  setActivePage,
+  setTotalCount,
+  setIsFetching,
 };
 
 const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersComponent);
