@@ -1,8 +1,4 @@
 import { useRef } from 'react';
-import {
-  addNewMessageActionCreator,
-  upgradeDialogsTextInputActionCreator,
-} from '../../../redux/dialogs-reducer';
 import s from './InputRow.module.css';
 
 const InputRow = (props) => {
@@ -10,10 +6,10 @@ const InputRow = (props) => {
 
   let eventTeaxtArea = () => {
     let text = ref.current.value;
-    props.dispatch(upgradeDialogsTextInputActionCreator(text));
+    props.upgradeDialogsText(text);
   };
   let eventBtn = () => {
-    props.dispatch(addNewMessageActionCreator());
+    props.addMessage();
   };
 
   return (

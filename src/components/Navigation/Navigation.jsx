@@ -27,6 +27,11 @@ const Naivgation = () => {
             <span>Music</span>
           </NavLink>
         </li>
+        <li>
+          <NavLink to="/users" className={activeNav}>
+            <span>Users</span>
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );

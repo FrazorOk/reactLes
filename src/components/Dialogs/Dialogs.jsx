@@ -16,7 +16,11 @@ const Dialogs = (props) => {
       <ul className={s.members}>{membersElements}</ul>
       <div className={s.messages_block}>
         <ul>{messagesElements}</ul>
-        <InputRow dispatch={props.dispatch} inputText={props.dialogs.inputText} />
+        <InputRow
+          upgradeDialogsText={props.upgradeDialogsText}
+          addMessage={props.addMessage}
+          inputText={props.dialogs.inputText}
+        />
       </div>
     </div>
   );
