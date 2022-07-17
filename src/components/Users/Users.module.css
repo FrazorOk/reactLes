@@ -63,3 +63,16 @@ button:hover {
   align-self: center;
   margin: auto 0;
 }
+
+.users_container .active {
+  font-weight: 700;
+}
+
+.users_container .pagination {
+}
+
+.pagination span {
+  margin: 0 5px;
+  padding: 2px;
+  cursor: pointer;
+}

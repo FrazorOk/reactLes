@@ -1,29 +1,40 @@
-import axios from 'axios';
-import React from 'react';
 import s from './Users.module.css';
 import user from './user.png';
 
-class Users extends React.Component {
-  componentDidMount() {
-    alert('working');
-    axios.get('https://social-network.samuraijs.com/api/1.0/users').then((response) => {
-      this.props.setUser(response.data.items);
-    });
+let Users = (props) => {
+  let pagesCount = Math.ceil(props.totalCount / props.maxUsers);
+  let pages = [];
+  for (let i = 1; i <= pagesCount; i++) {
+    pages.push(i);
   }
 
-  render() {
-    console.log(user);
-    return (
-      <div className={s.users_container}>
+  console.log('work');
+  return (
+    <div className={s.users_container}>
+      <div className={s.pagination}>
+        {pages.map((p) => {
+          return (
+            <span
+              className={p === props.activePage ? `${s.active}` : ''}
+              onClick={() => {
+                props.activeNomber(p);
+              }}
+            >
+              {p}
+            </span>
+          );
+        })}
+      </div>
+      <div>
         <div className={s.users}>
-          {this.props.users.map((u) => (
+          {props.users.map((u) => (
             <div className={s.user} key={u.id}>
               <div className={s.avatar}>
                 <img src={u.photos.small != null ? u.photos.small : `${user}`} alt="sorry" />
                 {u.followed ? (
                   <button
                     onClick={() => {
-                      this.props.unfollow(u.id);
+                      props.unfollow(u.id);
                     }}
                   >
                     Unfollow
@@ -46,8 +57,8 @@ class Users extends React.Component {
           ))}
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default Users;
