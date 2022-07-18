@@ -1,6 +1,68 @@
-.img {
-  height: 25vh;
-  background-image: url('/src/interesting-cat-facts.jpg');
-  background-size: cover;
-  background-position: center;
+.img_wallpaper {
+	height: 25vh;
+	background-image: url('/src/interesting-cat-facts.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.profile_info_row {
+	display: flex;
+	margin: 80px 30px;
+	align-items: center;
+}
+.profile_info_column {
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	padding: 25px;
+	box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.214);
+}
+.profile_info__img {
+	margin-right: 0;
+	width: 330px;
+	height: 330px;
+	object-fit: cover;
+	border-radius: 8px;
+	box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.214);
+}
+
+.profile__fullName {
+	text-transform: uppercase;
+	font-size: 26px;
+	font-weight: 700;
+	margin-bottom: 20px;
+}
+.profile__contacts {
+	margin-right: 40px;
+}
+.profile__contacts p {
+	font-weight: 500;
+}
+.profile__contacts a {
+	text-decoration: underline;
+	margin-top: 10px;
+}
+
+.profile__job p {
+	margin-bottom: 10px;
+}
+.profile__job input {
+	width: 20px;
+	height: 20px;
+	margin-left: 6px;
+}
+.profile__job_status {
+	margin-left: 6px;
+}
+.profile__job_h {
+	font-weight: 500;
+}
+.profile_info_row_contant {
+	padding: 20px 50px;
+	display: flex;
+	width: 100%;
+	justify-content: space-evenly;
 }
