@@ -1,6 +1,7 @@
 const ADD_NEW_POST = 'ADD-NEW-POST';
 const UPGRADE_TEXTAREA = 'UPGRADE-TEXTAREA';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
+const IS_FETCHING = 'IS_FETCHING';
 
 let initialState = {
 	dataPosts: [
@@ -10,6 +11,7 @@ let initialState = {
 	],
 	userProfile: null,
 	postNewText: '',
+	isFetching: false,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -30,6 +32,11 @@ const profileReducer = (state = initialState, action) => {
 				...state,
 				userProfile: action.userProfile,
 			};
+		case IS_FETCHING:
+			return {
+				...state,
+				isFetching: action.fetching,
+			};
 		default:
 			return state;
 	}
@@ -45,6 +52,10 @@ export const upgardeTextAreaActionCreator = (text) => ({
 export const setUserProfile = (userProfile) => ({
 	type: SET_USER_PROFILE,
 	userProfile,
+});
+export const setProfileFetching = (fetching) => ({
+	type: IS_FETCHING,
+	fetching,
 });
 
 export default profileReducer;

@@ -1,30 +1,46 @@
-import axios from 'axios';
 import React from 'react';
 import { connect } from 'react-redux';
-import { setUserProfile } from '../../redux/profile-reducer';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { profileAPI } from '../../api/api';
+import { setProfileFetching, setUserProfile } from '../../redux/profile-reducer';
+import Preloader from '../common/Preloader/Preloader';
 import Profile from './Profile';
+
+function withRouter(Children) {
+	function ComponentWithRouterProp(props) {
+		let location = useLocation();
+		let navigate = useNavigate();
+		let params = useParams();
+		return <Children {...props} router={{ location, navigate, params }} />;
+	}
+	return ComponentWithRouterProp;
+}
 
 class ProfileComponent extends React.Component {
 	componentDidMount() {
-		axios.get('https://social-network.samuraijs.com/api/1.0/profile/2').then((response) => {
+		this.props.setProfileFetching(false);
+
+		profileAPI.getProfileUser(this.props.router.params.userId).then((response) => {
 			this.props.setUserProfile(response.data);
+			this.props.setProfileFetching(true);
 		});
 	}
 
 	render() {
-		return <Profile {...this.props} />;
+		return this.props.profile.isFetching === true ? <Profile {...this.props} /> : <Preloader />;
 	}
 }
 
 const mapStateToProps = (state) => {
 	return {
-		userProfile: state.profile.userProfile,
+		profile: state.profile,
 	};
 };
 const mapDispatchToProps = {
 	setUserProfile,
+	setProfileFetching,
 };
 
-const ProfileContainer = connect(mapStateToProps, mapDispatchToProps)(ProfileComponent);
+const ProfileContainer = connect(mapStateToProps, mapDispatchToProps)(withRouter(ProfileComponent));
 
 export default ProfileContainer;

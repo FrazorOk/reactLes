@@ -1,6 +1,7 @@
 import s from './Users.module.css';
 import user from './user.png';
 import { NavLink } from 'react-router-dom';
+import { followAPI } from '../../api/api';
 
 let Users = (props) => {
 	let pagesCount = Math.ceil(props.totalCount / props.maxUsers);
@@ -35,14 +36,22 @@ let Users = (props) => {
 								{u.followed ? (
 									<button
 										onClick={() => {
-											props.unfollow(u.id);
+											followAPI.deleteFollow(u.id).then((response) => {
+												if (response.data.resultCode === 0) {
+													props.unfollow(u.id);
+												}
+											});
 										}}>
 										Unfollow
 									</button>
 								) : (
 									<button
 										onClick={() => {
-											props.follow(u.id);
+											followAPI.postFollow(u.id).then((response) => {
+												if (response.data.resultCode === 0) {
+													props.follow(u.id);
+												}
+											});
 										}}>
 										Follow
 									</button>

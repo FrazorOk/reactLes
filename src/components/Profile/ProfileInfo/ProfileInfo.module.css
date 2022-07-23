@@ -7,7 +7,7 @@
 
 .profile_info_row {
 	display: flex;
-	margin: 80px 30px;
+	margin: 40px 30px;
 	align-items: center;
 }
 .profile_info_column {
@@ -58,7 +58,9 @@
 	margin-left: 6px;
 }
 .profile__job_h {
+	display: inline-block;
 	font-weight: 500;
+	margin-bottom: 10px;
 }
 .profile_info_row_contant {
 	padding: 20px 50px;

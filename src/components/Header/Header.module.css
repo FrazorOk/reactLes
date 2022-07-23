@@ -1,9 +1,11 @@
 .header {
-  background-color: rgb(230, 230, 230);
-  padding: 10px;
+	background-color: rgb(230, 230, 230);
+	padding: 10px;
+	display: flex;
+	justify-content: space-between;
 }
 .header img {
-  width: 70px;
-  height: 70px;
-  cursor: pointer;
+	width: 70px;
+	height: 70px;
+	cursor: pointer;
 }

@@ -1,28 +1,26 @@
 import { connect } from 'react-redux';
 import { follow, setActivePage, setIsFetching, setTotalCount, setUser, unfollow } from '../../redux/users-reducer';
 import Users from './Users';
-import axios from 'axios';
 import React from 'react';
 import Preloader from '../common/Preloader/Preloader';
+import { usersAPI } from '../../api/api';
 
 class UsersComponent extends React.Component {
 	componentDidMount() {
 		this.props.setIsFetching(true);
 
-		axios
-			.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.maxUsers}&page=${this.props.activePage}`)
-			.then((response) => {
-				this.props.setUser(response.data.items);
-				response.data.totalCount >= 100 ? this.props.setTotalCount(100) : this.props.setTotalCount(response.data.totalCount);
-				this.props.setIsFetching(false);
-			});
+		usersAPI.getUsers(this.props.maxUsers, this.props.activePage).then((response) => {
+			this.props.setUser(response.data.items);
+			response.data.totalCount >= 100 ? this.props.setTotalCount(100) : this.props.setTotalCount(response.data.totalCount);
+			this.props.setIsFetching(false);
+		});
 	}
 
 	activeNomber = (p) => {
 		this.props.setIsFetching(true);
 		this.props.setActivePage(p);
 
-		axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.maxUsers}&page=${p}`).then((response) => {
+		usersAPI.getUsers(this.props.maxUsers, p).then((response) => {
 			this.props.setUser(response.data.items);
 			this.props.setIsFetching(false);
 		});
