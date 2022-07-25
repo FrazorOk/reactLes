@@ -6,6 +6,9 @@
 	color: white;
 	font-weight: 700;
 }
+.users_container button:disabled {
+	opacity: 0.6;
+}
 .users_container button:hover {
 	background-color: rgb(246, 255, 0);
 }

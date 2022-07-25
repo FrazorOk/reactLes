@@ -35,10 +35,13 @@ let Users = (props) => {
 								</NavLink>
 								{u.followed ? (
 									<button
+										disabled={!props.isFollowingProgress.some((id) => id === u.id) ? false : true}
 										onClick={() => {
+											props.toggleFollowingProgress(false, u.id);
 											followAPI.deleteFollow(u.id).then((response) => {
 												if (response.data.resultCode === 0) {
 													props.unfollow(u.id);
+													props.toggleFollowingProgress(true, u.id);
 												}
 											});
 										}}>
@@ -46,10 +49,13 @@ let Users = (props) => {
 									</button>
 								) : (
 									<button
+										disabled={!props.isFollowingProgress.some((id) => id === u.id) ? false : true}
 										onClick={() => {
+											props.toggleFollowingProgress(false, u.id);
 											followAPI.postFollow(u.id).then((response) => {
 												if (response.data.resultCode === 0) {
 													props.follow(u.id);
+													props.toggleFollowingProgress(true, u.id);
 												}
 											});
 										}}>
